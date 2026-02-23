@@ -1,0 +1,19 @@
+.authTabs {
+  display: flex;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.authTab {
+  cursor: pointer;
+}
+
+.authTab.active {
+  text-decoration: underline;
+}
+
+.authForm {
+  display: flex;
+  gap: 0.5rem;
+}
