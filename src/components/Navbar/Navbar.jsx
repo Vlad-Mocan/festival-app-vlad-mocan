@@ -9,7 +9,7 @@ export default function Navbar() {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <Link className={styles.logo} to="/">
-          freamăt
+          fonem
         </Link>
         <ul className={styles.navList}>
           <li>

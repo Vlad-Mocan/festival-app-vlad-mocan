@@ -1,6 +1,11 @@
+import About from "../../components/About/About";
 import Hero from "../../components/Hero/Hero";
-import styles from "./Home.module.css";
 
 export default function Home() {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <About />
+    </>
+  );
 }

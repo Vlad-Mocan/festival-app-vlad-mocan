@@ -1,19 +1,16 @@
 .dateGrid {
   position: relative;
-  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   font-size: clamp(3rem, 10vw, 10rem);
-
-  margin-top: 4rem;
+  overflow: hidden;
 
   padding: 2rem 4rem;
   min-height: 100dvh;
 }
 
 .blob1 {
-  content: "";
   position: absolute;
   width: 500px;
   height: 500px;
@@ -25,7 +22,6 @@
 }
 
 .blob2 {
-  content: "";
   position: absolute;
   width: 500px;
   height: 500px;

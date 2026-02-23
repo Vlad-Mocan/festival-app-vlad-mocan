@@ -1,7 +1,6 @@
 .heroSection {
   background-color: var(--brand-primary);
   min-height: 100dvh;
-  padding: 1rem;
 }
 
 .heroTitle {

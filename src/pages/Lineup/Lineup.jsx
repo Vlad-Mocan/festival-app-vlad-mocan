@@ -1,4 +1,3 @@
-import styles from "./Lineup.module.css";
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 
@@ -13,7 +12,7 @@ export default function Lineup() {
         setArtists(data);
         console.log(data);
       } catch (error) {
-        console.log("Error while fetching the artists");
+        console.log("Error while fetching the artists", error);
       }
     };
 

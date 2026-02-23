@@ -7,7 +7,7 @@
   color: var(--surface-alt);
 
   background: transparent;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .logo {
@@ -19,11 +19,13 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-inline: 2rem;
 }
 
 .navList {
   display: flex;
+
   gap: 1rem;
   font-weight: 300;
 }
