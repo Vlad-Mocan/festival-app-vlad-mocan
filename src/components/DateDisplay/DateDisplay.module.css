@@ -1,0 +1,82 @@
+.dateGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  font-size: clamp(3rem, 10vw, 10rem);
+  overflow: hidden;
+
+  padding: 2rem 4rem;
+  min-height: 100dvh;
+}
+
+.blob1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  top: 100px;
+  right: 100px;
+  filter: blur(80px);
+}
+
+.blob2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: var(--surface-main);
+  bottom: 100px;
+  left: 100px;
+  filter: blur(80px);
+}
+
+.days {
+  grid-column: 1 /-1;
+  grid-row: 1;
+  padding: 0.5rem 1rem;
+
+  z-index: 999;
+}
+
+.days span {
+  background-color: var(--surface-main);
+  color: var(--brand-primary);
+}
+
+.month {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 0.5rem 1rem;
+
+  z-index: 1000;
+}
+
+.month span {
+  background-color: var(--brand-primary);
+  color: var(--surface-main);
+}
+
+.yearPrefix {
+  grid-column: 3;
+  grid-row: 3;
+  z-index: 1000;
+}
+
+.yearPrefix span {
+  background-color: var(--surface-main);
+  color: var(--brand-primary);
+}
+
+.yearSuffix {
+  grid-column: 4;
+  grid-row: 2;
+  justify-self: end;
+  z-index: 1000;
+}
+
+.yearSuffix span {
+  background-color: var(--brand-primary);
+  color: var(--surface-main);
+}

@@ -12,7 +12,7 @@ function App() {
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (user) dispatch(setUser(user));
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
