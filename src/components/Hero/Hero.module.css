@@ -1,14 +1,14 @@
-.container {
+.heroSection {
+  background-color: var(--brand-primary);
   min-height: 100dvh;
-  background-color: var(--text-main);
-  color: var(--surface-main);
+  padding: 1rem;
 }
 
-.contactUsText {
+.heroTitle {
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: var(--surface-main);
   font-size: clamp(3rem, 10vw, 10rem);
-  text-align: center;
+  padding-top: 4rem;
 }

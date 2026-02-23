@@ -1,0 +1,65 @@
+:root {
+  --brand-primary: #1474ff;
+  --brand-accent: #ff7b00;
+
+  --surface-main: #fff7e3;
+  --surface-alt: #fbf5e7;
+
+  --text-main: #3d2800;
+  --text-inverse: #ffffff;
+  --border-subtle: #c4c4c4;
+}
+
+.dark-mode {
+  --brand-primary: #4794ff;
+  --brand-accent: #ff9533;
+
+  --surface-main: #1a1200;
+  --surface-alt: #261b05;
+
+  --text-main: #fcf4e0;
+  --text-inverse: #1a1200;
+
+  --border-subtle: #4d3d1f;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}

@@ -7,6 +7,7 @@ import Lineup from "./pages/Lineup/Lineup.jsx";
 import Login from "./pages/Login/Login.jsx";
 import store from "./store/store.js";
 import { Provider } from "react-redux";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
