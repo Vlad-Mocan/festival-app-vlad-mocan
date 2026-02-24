@@ -7,7 +7,9 @@ export default function ArtistCard({ artist, backgroundColor }) {
   return (
     <article
       className={styles.container}
-      style={{ backgroundColor: backgroundColor || "var(--surface-alt)" }}
+      style={{
+        ["--accent"]: backgroundColor,
+      }}
       aria-label={`${artist?.name} – ${artist?.day}, ${artist?.stage}`}
     >
       <div className={styles.imageWrapper} aria-hidden="true">

@@ -62,11 +62,13 @@ export default function Login() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="E-mail"
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
         />
         <button type="submit">
           {loading ? "Loading..." : isLogin ? "Sign In" : "Register"}

@@ -3,22 +3,34 @@
   cursor: pointer;
 
   padding: 0;
-  border-radius: 0.8rem;
-  background: #fff;
+  background: var(--surface-alt);
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
 
   display: flex;
   flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
 .imageWrapper {
   position: relative;
   width: 100%;
-
   aspect-ratio: 1;
-
   overflow: hidden;
+
+  transition: border 0.3s ease;
+  border: 0rem solid var(--accent);
+}
+
+.imageWrapper:hover {
+  border: 1rem solid var(--accent);
 }
 
 .artistImage {
@@ -59,7 +71,6 @@
 
 @media (max-width: 600px) {
   .container {
-    border-radius: 0.8rem;
     box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.12);
   }
 
@@ -69,17 +80,5 @@
 
   .cardContent {
     padding: 0.8rem 0.8rem 1rem;
-  }
-}
-
-@media (hover: hover) {
-  .container {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  .container:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
   }
 }
