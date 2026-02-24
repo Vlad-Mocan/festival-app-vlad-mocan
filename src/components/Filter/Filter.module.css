@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.detailsContainer {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pill {
+  border: none;
+  background: transparent;
+  border-radius: 50px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.genreContainer .pill {
+  border: 1px solid var(--brand-accent);
+}
+
+.daysContainer .pill {
+  border: 1px solid var(--brand-primary);
+}
+
+.genreContainer .pill.active {
+  background: var(--brand-accent);
+  color: var(--surface-alt);
+  font-weight: 700;
+}
+
+.daysContainer .pill.active {
+  background: var(--brand-primary);
+  color: var(--surface-alt);
+  font-weight: 700;
+}
+
+.genreSpan {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--brand-accent);
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+
+.daySpan {
+  font-weight: 700;
+  font-style: normal;
+  color: var(--brand-primary);
+  font-size: clamp(1rem, 5vw, 3rem);
+}
+
+@media (max-width: 700px) {
+  .detailsContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 8px;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    text-wrap: nowrap;
+  }
+  .detailsContainer::-webkit-scrollbar {
+    display: none;
+  }
+}

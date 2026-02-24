@@ -7,7 +7,10 @@
 
   --text-main: #3d2800;
   --text-inverse: #ffffff;
+
   --border-subtle: #c4c4c4;
+
+  --error: #d32f2f;
 }
 
 .dark-mode {
@@ -21,6 +24,8 @@
   --text-inverse: #1a1200;
 
   --border-subtle: #4d3d1f;
+
+  --error: #ff5252;
 }
 
 *,

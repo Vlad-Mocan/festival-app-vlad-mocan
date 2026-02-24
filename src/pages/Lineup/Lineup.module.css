@@ -1,0 +1,27 @@
+.container {
+  padding: 4rem 1rem;
+  background-color: var(--surface-alt);
+  min-height: 100dvh;
+}
+
+.heading {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-main);
+  font-size: clamp(3rem, 12vw, 10rem);
+  margin-bottom: 1rem;
+}
+
+.gridArtists {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  justify-content: center;
+
+  gap: 3rem;
+  row-gap: 3rem;
+}
+
+.errorMessage {
+  color: var(--error);
+}
