@@ -1,6 +1,8 @@
 .heroSection {
-  background-color: var(--brand-primary);
   min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--brand-primary);
 }
 
 .heroTitle {
@@ -10,4 +12,58 @@
   color: var(--surface-main);
   font-size: clamp(3rem, 10vw, 10rem);
   padding-top: 4rem;
+}
+
+.blob1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  bottom: 400px;
+
+  right: 100px;
+  filter: blur(80px);
+  transition:
+    bottom 0.5s,
+    width 0.5s,
+    height 0.5s,
+    filter 0.5s;
+}
+
+.blob2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: var(--surface-main);
+  left: 100px;
+  top: 500px;
+  filter: blur(80px);
+  transition:
+    top 0.5s,
+    width 0.5s,
+    height 0.5s,
+    filter 0.5s;
+}
+
+@media (max-width: 1350px) {
+  .blob1 {
+    bottom: 30px;
+    width: 300px;
+    height: 300px;
+    filter: blur(50px);
+  }
+
+  .blob2 {
+    top: 250px;
+    width: 300px;
+    height: 300px;
+    filter: blur(50px);
+  }
+
+  .heroSection {
+    height: auto;
+    min-height: 60vh;
+  }
 }

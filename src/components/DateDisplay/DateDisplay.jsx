@@ -1,12 +1,8 @@
 import styles from "./DateDisplay.module.css";
 export default function DateDisplay() {
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.dateGrid}>
-        <div className={styles.blob1}></div>
-        <div className={styles.blob2}></div>
-        <div className={styles.blob3}></div>
-
         <div className={styles.days}>
           <span>18-21</span>
         </div>
@@ -20,6 +16,6 @@ export default function DateDisplay() {
           <span>26</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
