@@ -42,38 +42,46 @@ export default function Login() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.authTabs}>
-        <span
-          className={`${styles.authTab} ${isLogin ? styles.active : ""}`}
-          onClick={() => setIsLogin(true)}
-        >
-          Sign In
-        </span>
-        <span
-          className={`${styles.authTab} ${!isLogin ? styles.active : ""}`}
-          onClick={() => setIsLogin(false)}
-        >
-          Register
-        </span>
-      </div>
+      <div className={styles.blob1}></div>
+      <div className={styles.blob2}></div>
+      <div className={styles.blob3}></div>
 
-      <form onSubmit={handleSumbit} className={styles.authForm}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit">
-          {loading ? "Loading..." : isLogin ? "Sign In" : "Register"}
-        </button>
-      </form>
+      <div className={styles.authContainer}>
+        <div className={styles.textContainer}>
+          <span
+            className={`${styles.logInText} ${isLogin ? styles.active : ""}`}
+            onClick={() => setIsLogin(true)}
+          >
+            login
+          </span>
+          <span
+            className={`${styles.registerText} ${isLogin ? "" : styles.active}`}
+            onClick={() => setIsLogin(false)}
+          >
+            register
+          </span>
+        </div>
+
+        <form onSubmit={handleSumbit} className={styles.authForm}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail"
+            className={styles.email}
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className={styles.password}
+          />
+          <button type="submit" className={styles.submitBtn}>
+            {loading ? "Loading..." : isLogin ? "Sign In" : "Register"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
