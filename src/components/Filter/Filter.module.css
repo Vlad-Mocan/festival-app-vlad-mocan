@@ -13,34 +13,47 @@
 }
 
 .pill {
+  position: relative;
   border: none;
   background: transparent;
-  border-radius: 5rem;
   padding: 0.4rem 0.8rem;
-  cursor: pointer;
   font-family: inherit;
   color: var(--text-main);
   font-weight: 500;
+
+  cursor: pointer;
 }
 
-.genreContainer .pill {
-  border: 1px solid var(--brand-accent);
-}
-
-.daysContainer .pill {
-  border: 1px solid var(--brand-primary);
-}
-
-.genreContainer .pill.active {
-  background: var(--brand-accent);
-  color: var(--surface-alt);
+.pill.active {
   font-weight: 700;
+  text-transform: uppercase;
 }
 
-.daysContainer .pill.active {
+.pill::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.pill:hover::after {
+  width: 100%;
+}
+
+.pill.active::after {
+  width: 100%;
+}
+
+.genreContainer .pill::after {
   background: var(--brand-primary);
-  color: var(--surface-alt);
-  font-weight: 700;
+}
+
+.daysContainer .pill::after {
+  background: var(--brand-accent);
 }
 
 .genreSpan {
