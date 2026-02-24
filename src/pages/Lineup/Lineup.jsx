@@ -7,9 +7,9 @@ import Filter from "../../components/Filter/Filter";
 
 const colors = [
   "var(--brand-primary)",
+  "var(--text-main)",
   "var(--brand-accent)",
   "var(--border-subtle)",
-  "var(--surface-main",
 ];
 
 export default function Lineup() {
@@ -64,7 +64,7 @@ export default function Lineup() {
 
   if (loading) {
     return (
-      <div className={styles.container}>
+      <div className={styles.loadingContainer}>
         <Loader />
       </div>
     );

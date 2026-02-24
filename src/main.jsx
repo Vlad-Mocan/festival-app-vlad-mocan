@@ -8,6 +8,7 @@ import Login from "./pages/Login/Login.jsx";
 import store from "./store/store.js";
 import { Provider } from "react-redux";
 import "./index.css";
+import Profile from "./pages/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/lineup", element: <Lineup /> },
       { path: "/login", element: <Login /> },
+      { path: "/profile", element: <Profile /> },
     ],
   },
 ]);

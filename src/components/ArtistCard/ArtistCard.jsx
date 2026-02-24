@@ -1,26 +1,34 @@
 import styles from "./ArtistCard.module.css";
 
 export default function ArtistCard({ artist, backgroundColor }) {
+  const imgSrc =
+    artist?.image_url || `https://picsum.photos/seed/${artist?.id}/800/800`;
+
   return (
-    <div
+    <article
       className={styles.container}
-      style={{ backgroundColor: backgroundColor }}
+      style={{
+        ["--accent"]: backgroundColor,
+      }}
+      aria-label={`${artist?.name} – ${artist?.day}, ${artist?.stage}`}
     >
-      <div className={styles.imageWrapper}>
+      <div className={styles.imageWrapper} aria-hidden="true">
         <img
-          src={
-            artist.image_url ||
-            `https://picsum.photos/seed/${artist.id}/400/400`
-          }
-          alt={artist.name}
+          loading="lazy"
+          src={imgSrc}
+          alt={artist?.name || "Artist image"}
           className={styles.artistImage}
-        ></img>
+        />
       </div>
-      <p className={styles.artistName}>{artist.name}</p>
-      <div className={styles.performanceDetails}>
-        <p>{artist.day}</p>
-        <p className={styles.stageText}>{artist.stage}</p>
+
+      <div className={styles.cardContent}>
+        <h3 className={styles.artistName}>{artist?.name}</h3>
+
+        <div className={styles.performanceDetails}>
+          <p>{artist?.day}</p>
+          <p className={styles.stageText}>{artist?.stage}</p>
+        </div>
       </div>
-    </div>
+    </article>
   );
 }

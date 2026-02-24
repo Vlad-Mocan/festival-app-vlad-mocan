@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 function App() {
   const dispatch = useDispatch();
   const location = useLocation();
-  const isDark = location.pathname === "/";
+  const isDark = location.pathname === "/" || location.pathname === "/login";
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data: { user } }) => {

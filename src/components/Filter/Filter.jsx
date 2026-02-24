@@ -11,7 +11,7 @@ export default function Filter({
   return (
     <div className={styles.container}>
       <div className={`${styles.detailsContainer}  ${styles.genreContainer}`}>
-        <span className={styles.genreSpan}>GENRE:</span>
+        {/* <span className={styles.genreSpan}>GENRE:</span> */}
         {genres.map((genre) => (
           <button
             className={`${styles.pill} ${selectedGenre === genre ? styles.active : ""}`}
@@ -24,7 +24,7 @@ export default function Filter({
       </div>
 
       <div className={`${styles.detailsContainer}  ${styles.daysContainer}`}>
-        <span className={styles.daySpan}>DAY:</span>
+        {/* <span className={styles.daySpan}>DAY:</span> */}
         {days.map((day) => (
           <button
             className={`${styles.pill} ${selectedDay === day ? styles.active : ""}`}

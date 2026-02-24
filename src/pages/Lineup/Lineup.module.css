@@ -4,6 +4,14 @@
   min-height: 100dvh;
 }
 
+.loadingContainer {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-alt);
+}
+
 .heading {
   font-family: "Anton", sans-serif;
   font-weight: 400;
@@ -18,7 +26,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
   justify-content: center;
 
-  gap: 3rem;
+  gap: 1rem;
   row-gap: 3rem;
 }
 
