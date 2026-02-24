@@ -28,9 +28,6 @@ export default function Login() {
       const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
-        options: {
-          emailRedirectTo: "https://example.com/welcome",
-        },
       });
       if (error) console.log(error);
       else dispatch(setUser(data.user));

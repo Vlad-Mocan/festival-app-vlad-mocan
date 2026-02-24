@@ -2,11 +2,13 @@ import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function Navbar() {
+export default function Navbar({ isDark }) {
   const user = useSelector((state) => state.auth.user);
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${isDark ? styles.light : styles.dark}`}
+    >
       <nav className={styles.nav}>
         <Link className={styles.logo} to="/">
           fonem
