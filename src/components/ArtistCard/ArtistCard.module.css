@@ -1,0 +1,29 @@
+.container {
+  min-height: 20vh;
+  width: 100%;
+
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 3px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.artistName {
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: var(--text-main);
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.stageText {
+  text-transform: uppercase;
+}
+.performanceDetails {
+  text-align: center;
+  justify-self: flex-end;
+}
