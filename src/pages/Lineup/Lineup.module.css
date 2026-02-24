@@ -4,6 +4,14 @@
   min-height: 100dvh;
 }
 
+.loadingContainer {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-alt);
+}
+
 .heading {
   font-family: "Anton", sans-serif;
   font-weight: 400;
