@@ -45,16 +45,8 @@
   gap: 2rem;
   font-family: "Anton", sans-serif;
   letter-spacing: -1px;
-  font-size: clamp(3rem, 10vw, 10rem);
+  font-size: clamp(1rem, 10vw, 10rem);
   z-index: 1000;
-}
-
-.yourSpan {
-  /* color: var(--brand-primary); */
-}
-
-.profileSpan {
-  /* color: var(--brand-accent); */
 }
 
 .blob1 {
@@ -100,7 +92,27 @@
 }
 
 .profileArtists {
-  font-size: clamp(1rem, 5vw, 5rem);
-  margin-left: auto;
-  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.artistsInner {
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.imagesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  max-height: 300px;
+  gap: 1rem;
+  width: 100%;
+  overflow-x: hidden;
+  justify-content: flex-end;
+  z-index: 1000;
 }

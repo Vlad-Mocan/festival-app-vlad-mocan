@@ -32,6 +32,18 @@
   border: none;
 }
 
+.addToScheduleBtn {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--brand-accent);
+  background: transparent;
+  border: none;
+}
+
 .imageWrapper {
   position: relative;
   width: 100%;

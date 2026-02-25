@@ -25,8 +25,7 @@ export default function Lineup() {
     try {
       const saved = JSON.parse(localStorage.getItem("filters"));
       return saved?.selectedGenre || "All";
-    } catch (error) {
-      console.error(error);
+    } catch {
       return "All";
     }
   });
@@ -35,9 +34,17 @@ export default function Lineup() {
     try {
       const saved = JSON.parse(localStorage.getItem("filters"));
       return saved?.selectedDay || "All";
-    } catch (error) {
+    } catch {
       console.error(error);
       return "All";
+    }
+  });
+
+  const [schedule, setSchedule] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("schedule") || []);
+    } catch {
+      return [];
     }
   });
 
@@ -69,6 +76,22 @@ export default function Lineup() {
   const handleDelete = async (id) => {
     await supabase.from("artists").delete().eq("id", id);
     fetchArtists();
+  };
+
+  const toggleSchedule = (id) => {
+    const updatedSchedule = schedule.includes(id)
+      ? schedule.filter((artistId) => artistId !== id)
+      : [...schedule, id];
+    console.log(updatedSchedule);
+
+    setSchedule(updatedSchedule);
+    console.log(schedule);
+
+    try {
+      localStorage.setItem("schedule", JSON.stringify(updatedSchedule));
+    } catch {
+      console.error("Failed to save schedule");
+    }
   };
 
   if (loading) {
@@ -132,6 +155,9 @@ export default function Lineup() {
             artist={artist}
             isAdmin={isAdmin}
             onDelete={handleDelete}
+            isLoggedIn={!!profile}
+            onToggleSchedule={toggleSchedule}
+            isScheduled={schedule.includes(artist.id)}
           />
         ))}
       </div>

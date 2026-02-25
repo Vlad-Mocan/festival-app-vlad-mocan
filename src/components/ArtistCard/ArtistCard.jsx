@@ -5,6 +5,9 @@ export default function ArtistCard({
   backgroundColor,
   isAdmin,
   onDelete,
+  isLoggedIn,
+  onToggleSchedule,
+  isScheduled,
 }) {
   const imgSrc =
     artist?.image_url || `https://picsum.photos/seed/${artist?.id}/800/800`;
@@ -25,6 +28,16 @@ export default function ArtistCard({
           &#10005;
         </button>
       )}
+
+      {isLoggedIn && (
+        <button
+          className={styles.addToScheduleBtn}
+          onClick={() => onToggleSchedule(artist.id)}
+        >
+          {isScheduled ? "✔" : "+"}
+        </button>
+      )}
+
       <div className={styles.imageWrapper} aria-hidden="true">
         <img
           loading="lazy"

@@ -23,7 +23,6 @@ function App() {
           .eq("id", user.id)
           .single()
           .then(({ data: profile }) => {
-            console.log("APP", profile);
             dispatch(setProfile(profile));
             setLoading(false);
           });
