@@ -1,6 +1,11 @@
 import styles from "./ArtistCard.module.css";
 
-export default function ArtistCard({ artist, backgroundColor }) {
+export default function ArtistCard({
+  artist,
+  backgroundColor,
+  isAdmin,
+  onDelete,
+}) {
   const imgSrc =
     artist?.image_url || `https://picsum.photos/seed/${artist?.id}/800/800`;
 
@@ -12,6 +17,14 @@ export default function ArtistCard({ artist, backgroundColor }) {
       }}
       aria-label={`${artist?.name} – ${artist?.day}, ${artist?.stage}`}
     >
+      {isAdmin && (
+        <button
+          className={styles.deleteBtn}
+          onClick={() => onDelete(artist.id)}
+        >
+          &#10005;
+        </button>
+      )}
       <div className={styles.imageWrapper} aria-hidden="true">
         <img
           loading="lazy"

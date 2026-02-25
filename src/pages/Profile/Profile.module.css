@@ -1,4 +1,106 @@
-.container {
+.profile {
+  position: relative;
   min-height: 100dvh;
-  padding-top: 80px;
+  background-color: var(--surface-main);
+  color: var(--text-main);
+  padding: 1rem;
+  padding-top: 3rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.signOutBtn {
+  background: transparent;
+  border: none;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: 700;
+  color: inherit;
+  cursor: pointer;
+
+  position: absolute;
+  bottom: 5rem;
+  right: 5rem;
+}
+
+.signOutBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.signOutBtn:hover::after {
+  width: 100%;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: "Anton", sans-serif;
+  letter-spacing: -1px;
+  font-size: clamp(3rem, 10vw, 10rem);
+  z-index: 1000;
+}
+
+.yourSpan {
+  /* color: var(--brand-primary); */
+}
+
+.profileSpan {
+  /* color: var(--brand-accent); */
+}
+
+.blob1 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--brand-accent);
+  bottom: 100px;
+
+  right: 300px;
+  filter: blur(50px);
+  transition:
+    bottom 0.5s,
+    width 0.5s,
+    height 0.5s,
+    filter 0.5s;
+}
+
+.blob2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--brand-primary);
+  right: 800px;
+  top: 300px;
+  filter: blur(50px);
+  transition:
+    top 0.5s,
+    width 0.5s,
+    height 0.5s,
+    filter 0.5s;
+}
+
+.profileDescription {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: 200;
+
+  color: var(--text-main);
+}
+
+.profileArtists {
+  font-size: clamp(1rem, 5vw, 5rem);
+  margin-left: auto;
+  margin-right: 1rem;
 }

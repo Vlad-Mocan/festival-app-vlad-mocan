@@ -88,13 +88,7 @@
   text-decoration: underline;
 }
 
-.email {
-  padding: 0.5rem 1rem;
-  border-radius: 3px;
-  border: none;
-}
-
-.password {
+.input {
   padding: 0.5rem 1rem;
   border-radius: 3px;
   border: none;
