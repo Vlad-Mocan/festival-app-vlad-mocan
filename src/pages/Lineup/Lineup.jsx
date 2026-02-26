@@ -19,7 +19,10 @@ export default function Lineup() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showAdmin, setShowAdmin] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
   const profile = useSelector((state) => state.auth.profile);
+
   const [sortBy, setSortBy] = useState(() => {
     return localStorage.getItem("sort") || "name-asc";
   });
@@ -145,6 +148,14 @@ export default function Lineup() {
 
   const isAdmin = profile?.role === "admin";
 
+  const perPage = 10;
+
+  const totalPages = Math.ceil(sortedArtists.length / perPage);
+  const paginatedArtists = sortedArtists.slice(
+    (currentPage - 1) * perPage,
+    currentPage * perPage,
+  );
+
   return (
     <div className={styles.container}>
       <h1 className={styles.heading}>FULL LINEUP</h1>
@@ -196,7 +207,7 @@ export default function Lineup() {
       </div>
       {isAdmin && showAdmin && <AdminArtistForm onArtistAdded={fetchArtists} />}
       <div className={styles.gridArtists}>
-        {sortedArtists.map((artist, index) => (
+        {paginatedArtists.map((artist, index) => (
           <ArtistCard
             key={artist.id}
             backgroundColor={colors[index % colors.length]}
@@ -208,6 +219,32 @@ export default function Lineup() {
             isScheduled={schedule.includes(artist.id)}
           />
         ))}
+      </div>
+
+      <div className={styles.pagination}>
+        <button
+          className={styles.pageBtn}
+          onClick={() => setCurrentPage((prev) => prev - 1)}
+          disabled={currentPage === totalPages}
+        >
+          &#8592;
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => (
+          <button
+            key={i + 1}
+            className={`${styles.pageBtn} ${currentPage === i + 1 ? styles.activePage : ""}`}
+            onClick={() => setCurrentPage(i + 1)}
+          >
+            {i + 1}
+          </button>
+        ))}
+        <button
+          className={styles.pageBtn}
+          onClick={() => setCurrentPage((prev) => prev + 1)}
+          disabled={currentPage === totalPages}
+        >
+          &#8594;
+        </button>
       </div>
     </div>
   );
