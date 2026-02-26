@@ -9,6 +9,7 @@ import store from "./store/store.js";
 import { Provider } from "react-redux";
 import "./index.css";
 import Profile from "./pages/Profile/Profile.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: "/lineup", element: <Lineup /> },
       { path: "/login", element: <Login /> },
       { path: "/profile", element: <Profile /> },
+      { path: "/contact", element: <Contact /> },
     ],
   },
 ]);

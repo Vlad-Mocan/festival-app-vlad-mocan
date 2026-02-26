@@ -2,6 +2,11 @@
   min-height: 100dvh;
   background-color: var(--text-main);
   color: var(--surface-main);
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .contactUsText {
@@ -11,4 +16,79 @@
   color: var(--surface-main);
   font-size: clamp(3rem, 10vw, 10rem);
   text-align: center;
+
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: color 0.5s;
+}
+
+.contactUsText:hover {
+  color: var(--brand-accent);
+}
+
+.footerContent {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--surface-main);
+  border-bottom: 1px solid var(--surface-main);
+}
+
+.footerSection h3 {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+
+.footerSection ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footerSection li {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.footerSection a {
+  position: relative;
+  color: var(--surface-main);
+  transition: opacity 0.3s ease;
+}
+
+.footerSection a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--surface-main);
+  transition: width 0.3s ease;
+}
+
+.footerSection a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerSection {
+    text-align: center;
+  }
 }
