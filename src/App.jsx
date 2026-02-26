@@ -6,6 +6,7 @@ import { setProfile, setUser } from "./store/authSlice";
 import { supabase } from "./lib/supabase";
 import { useDispatch } from "react-redux";
 import Loader from "./components/Loader/Loader";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ function App() {
   }
   return (
     <>
+      <ScrollToTop />
       <Navbar isDark={isDark} />
       <Outlet />
       <Footer />

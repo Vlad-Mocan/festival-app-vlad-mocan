@@ -51,16 +51,16 @@
 
 @media (max-width: 1350px) {
   .blob1 {
-    bottom: 30px;
-    width: 300px;
-    height: 300px;
+    bottom: 150px;
+    width: 250px;
+    height: 250px;
     filter: blur(50px);
   }
 
   .blob2 {
     top: 250px;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     filter: blur(50px);
   }
 
@@ -68,4 +68,27 @@
     height: auto;
     min-height: 60vh;
   }
+}
+
+.lineupLink {
+  display: inline-block;
+  background-color: var(--surface-main);
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  font-family: "Anton", sans-serif;
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  width: fit-content;
+  border-bottom: 2px solid transparent;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.lineupLink:hover {
+  color: var(--surface-main);
+  background-color: var(--brand-accent);
 }

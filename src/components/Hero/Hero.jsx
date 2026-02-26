@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DateDisplay from "../DateDisplay/DateDisplay";
 import styles from "./Hero.module.css";
 
@@ -8,6 +9,9 @@ export default function Hero() {
       <div className={styles.blob2}></div>
       <h1 className={styles.heroTitle}>fonM FESTIVAL</h1>
       <DateDisplay />
+      <Link to="/lineup" className={styles.lineupLink}>
+        SEE FULL LINEUP
+      </Link>
     </section>
   );
 }
