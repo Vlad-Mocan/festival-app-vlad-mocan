@@ -152,15 +152,31 @@ export default function Lineup() {
           setSelectedDay={setSelectedDay}
           setSelectedGenre={setSelectedGenre}
         />
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="name-asc">Name A-Z</option>
-          <option value="name-desc">Name Z-A</option>
+        <div className={styles.sortWrapper}>
+          <select
+            className={styles.sortElement}
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+          >
+            <option value="name-asc">Name A-Z</option>
+            <option value="name-desc">Name Z-A</option>
 
-          <option value="day-asc">Thursday &rarr; Sunday</option>
-          <option value="day-desc">Sunday &rarr; Thursday</option>
+            <option value="day-asc">Thursday &rarr; Sunday</option>
+            <option value="day-desc">Sunday &rarr; Thursday</option>
 
-          <option value="stage">Stage</option>
-        </select>
+            <option value="stage">Stage</option>
+          </select>
+          <svg
+            className={styles.sortArrow}
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="var(--text-main)"
+          >
+            <path d="M480-345 240-585l56-56 184 183 184-183 56 56-240 240Z" />
+          </svg>
+        </div>
         {isAdmin && (
           <button
             onClick={() => setShowAdmin(!showAdmin)}

@@ -41,7 +41,7 @@
   color: var(--text-main);
   font-weight: 500;
 
-  margin-right: 10rem;
+  margin-right: 2rem;
   cursor: pointer;
 }
 
@@ -58,4 +58,36 @@
 
 .showAdminBtn:hover::after {
   width: 100%;
+}
+
+.sortWrapper {
+  position: relative;
+
+  /* margin-left: auto; */
+  margin-right: 2rem;
+  padding-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.sortElement {
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid var(--text-main);
+  background: transparent;
+  color: var(--text-main);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 1.5rem 0.2rem 0;
+}
+
+.sortElement:focus {
+  outline: none;
+}
+
+.sortArrow {
+  position: absolute;
+  right: 0;
+  pointer-events: none;
 }
