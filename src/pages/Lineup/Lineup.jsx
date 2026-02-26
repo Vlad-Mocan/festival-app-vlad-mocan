@@ -58,6 +58,10 @@ export default function Lineup() {
   }, []);
 
   useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedStage, selectedDay, sortBy]);
+
+  useEffect(() => {
     localStorage.setItem("sort", sortBy);
   }, [sortBy]);
 
