@@ -20,6 +20,7 @@ export default function Lineup() {
   const [error, setError] = useState(null);
   const [showAdmin, setShowAdmin] = useState(false);
   const profile = useSelector((state) => state.auth.profile);
+  const [sortBy, setSortBy] = useState("name");
 
   const [selectedGenre, setSelectedGenre] = useState(() => {
     try {
@@ -122,6 +123,21 @@ export default function Lineup() {
     return genreMatch && dayMatch;
   });
 
+  const stageOrder = ["Main Stage", "Dance Arena", "Orchestra Hall"];
+
+  const sortedArtists = [...filteredArtists].sort((a, b) => {
+    if (sortBy === "name-asc") return a.name.localeCompare(b.name);
+    if (sortBy === "name-desc") return b.name.localeCompare(a.name);
+    if (sortBy === "stage")
+      return stageOrder.indexOf(a.stage) - stageOrder.indexOf(b.stage);
+    if (sortBy === "day-asc")
+      return dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day);
+    if (sortBy === "day-desc")
+      return dayOrder.indexOf(b.day) - dayOrder.indexOf(a.day);
+
+    return a[sortBy].localeCompare(b[sortBy]);
+  });
+
   const isAdmin = profile?.role === "admin";
 
   return (
@@ -136,6 +152,15 @@ export default function Lineup() {
           setSelectedDay={setSelectedDay}
           setSelectedGenre={setSelectedGenre}
         />
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="name-asc">Name A-Z</option>
+          <option value="name-desc">Name Z-A</option>
+
+          <option value="day-asc">Thursday &rarr; Sunday</option>
+          <option value="day-desc">Sunday &rarr; Thursday</option>
+
+          <option value="stage">Stage</option>
+        </select>
         {isAdmin && (
           <button
             onClick={() => setShowAdmin(!showAdmin)}
@@ -148,7 +173,7 @@ export default function Lineup() {
       </div>
       {isAdmin && showAdmin && <AdminArtistForm onArtistAdded={fetchArtists} />}
       <div className={styles.gridArtists}>
-        {filteredArtists.map((artist, index) => (
+        {sortedArtists.map((artist, index) => (
           <ArtistCard
             key={artist.id}
             backgroundColor={colors[index % colors.length]}
