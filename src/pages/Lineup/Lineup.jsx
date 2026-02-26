@@ -20,8 +20,9 @@ export default function Lineup() {
   const [error, setError] = useState(null);
   const [showAdmin, setShowAdmin] = useState(false);
   const profile = useSelector((state) => state.auth.profile);
-  const [sortBy, setSortBy] = useState("name");
-
+  const [sortBy, setSortBy] = useState(() => {
+    return localStorage.getItem("sort") || "name-asc";
+  });
   const [selectedStage, setSelectedStage] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("filters"));
@@ -52,6 +53,10 @@ export default function Lineup() {
   useEffect(() => {
     fetchArtists();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("sort", sortBy);
+  }, [sortBy]);
 
   useEffect(() => {
     localStorage.setItem(
