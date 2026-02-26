@@ -49,26 +49,12 @@
   width: 100%;
 }
 
-.genreContainer .pill::after {
+.stageContainer .pill::after {
   background: var(--brand-primary);
 }
 
 .daysContainer .pill::after {
   background: var(--brand-accent);
-}
-
-.genreSpan {
-  font-weight: 700;
-  font-style: normal;
-  color: var(--brand-accent);
-  font-size: clamp(1rem, 3vw, 2rem);
-}
-
-.daySpan {
-  font-weight: 700;
-  font-style: normal;
-  color: var(--brand-primary);
-  font-size: clamp(1rem, 3vw, 2rem);
 }
 
 @media (max-width: 700px) {

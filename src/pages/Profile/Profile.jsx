@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Profile.module.css";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { logout } from "../../store/authSlice";
 import { supabase } from "../../lib/supabase";
 import { useEffect, useState } from "react";
-import ProfileArtistCard from "../../components/ProfileArtistCard/ProfileArtistCard";
 import ProfileArtists from "../../components/ProfileArtists/ProfileArtists";
+import Messages from "../../components/Messages/Messages";
 
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const profile = useSelector((state) => state.auth.profile);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [myArtists, setMyArtists] = useState([]);
 
@@ -50,23 +51,44 @@ export default function Profile() {
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
 
-      <div>
+      <div className={styles.profileInformation}>
         <div className={styles.profileHeader}>
           <span>YOUR</span>
           <span>PROFILE</span>
           {profile?.role === "admin" && (
-            <span className={styles.profileSpan}> - ADMIN</span>
+            <span className={styles.adminSpan}>ADMIN</span>
           )}
         </div>
 
         <div className={styles.profileDescription}>
-          <span>E-mail: {user.email}</span>
-          <span>First Name: {profile.first_name}</span>
-          <span>Last Name: {profile.last_name}</span>
+          <span>
+            <strong>EMAIL:</strong> {user.email}
+          </span>
+          <span>
+            <strong>FIRST NAME:</strong> {profile.first_name}
+          </span>
+          <span>
+            <strong>LAST NAME:</strong> {profile.last_name}
+          </span>
         </div>
       </div>
 
+      {profile?.role === "admin" && (
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={styles.seeMessagesBtn}
+        >
+          SEE CONTACT MESSAGES
+        </button>
+      )}
+
+      {isOpen && <Messages setIsOpen={setIsOpen} />}
+
       <ProfileArtists artists={myArtists} />
+
+      {/* <video className={styles.profileVideo} autoPlay muted loop playsInline>
+        <source src="/profile.mp4" type="video/mp4" />
+      </video> */}
 
       <button className={styles.signOutBtn} onClick={handleSignOut}>
         Sign Out

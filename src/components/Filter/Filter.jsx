@@ -1,30 +1,28 @@
 import styles from "./Filter.module.css";
 
 export default function Filter({
-  genres,
+  stages,
   days,
-  selectedGenre,
+  selectedStage,
   selectedDay,
-  setSelectedGenre,
+  setSelectedStage,
   setSelectedDay,
 }) {
   return (
     <div className={styles.container}>
-      <div className={`${styles.detailsContainer}  ${styles.genreContainer}`}>
-        {/* <span className={styles.genreSpan}>GENRE:</span> */}
-        {genres.map((genre) => (
+      <div className={`${styles.detailsContainer}  ${styles.stageContainer}`}>
+        {stages.map((stage) => (
           <button
-            className={`${styles.pill} ${selectedGenre === genre ? styles.active : ""}`}
-            onClick={() => setSelectedGenre(genre)}
-            key={genre}
+            className={`${styles.pill} ${selectedStage === stage ? styles.active : ""}`}
+            onClick={() => setSelectedStage(stage)}
+            key={stage}
           >
-            {genre}
+            {stage}
           </button>
         ))}
       </div>
 
       <div className={`${styles.detailsContainer}  ${styles.daysContainer}`}>
-        {/* <span className={styles.daySpan}>DAY:</span> */}
         {days.map((day) => (
           <button
             className={`${styles.pill} ${selectedDay === day ? styles.active : ""}`}

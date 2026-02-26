@@ -38,24 +38,48 @@
   position: relative;
   border: none;
   background: transparent;
-  color: var(--text-main);
+  color: var(--surface-alt);
+  background-color: var(--brand-accent);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
   font-weight: 500;
 
-  margin-right: 10rem;
+  margin-right: 2rem;
   cursor: pointer;
+  transition: opacity 0.3s;
 }
 
-.showAdminBtn::after {
-  content: "";
+.showAdminBtn:hover {
+  opacity: 0.8;
+}
+
+.sortWrapper {
+  position: relative;
+
+  margin-right: 2rem;
+  padding-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.sortElement {
+  appearance: none;
+  border: none;
+  border-bottom: 2px solid var(--text-main);
+  background: transparent;
+  color: var(--text-main);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.2rem 1.5rem 0.2rem 0;
+}
+
+.sortElement:focus {
+  outline: none;
+}
+
+.sortArrow {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--text-main);
-  transition: width 0.3s ease;
-}
-
-.showAdminBtn:hover::after {
-  width: 100%;
+  right: 0;
+  pointer-events: none;
 }

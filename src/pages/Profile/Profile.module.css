@@ -20,8 +20,8 @@
   cursor: pointer;
 
   position: absolute;
-  bottom: 5rem;
-  right: 5rem;
+  bottom: 5%;
+  right: 3%;
 }
 
 .signOutBtn::after {
@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.profileInformation {
+  margin-top: 2rem;
+}
+
 .profileHeader {
   display: flex;
   align-items: center;
@@ -47,6 +51,61 @@
   letter-spacing: -1px;
   font-size: clamp(1rem, 10vw, 10rem);
   z-index: 1000;
+}
+
+.profileDescription {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(1rem, 3vw, 2rem);
+  font-weight: 300;
+  color: var(--text-main);
+
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.adminSpan {
+  font-size: clamp(1rem, 3vw, 2rem);
+}
+
+.seeArtistsBtn {
+  position: fixed;
+  bottom: 3%;
+  right: 60%;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.3s ease;
+}
+
+.seeArtistsBtn.active {
+  transform: translateY(-500%);
+}
+
+.seeArtistsBtn.active svg {
+  transform: rotate(180deg);
+}
+
+.artistsNumber {
+  position: absolute;
+  font-family: "Anton", sans-serif;
+  font-size: clamp(4rem, 6vw, 6rem);
+  color: var(--brand-accent);
+
+  bottom: 10%;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    min-height: 50vh;
+  }
 }
 
 .blob1 {
@@ -82,37 +141,37 @@
     filter 0.5s;
 }
 
-.profileDescription {
-  display: flex;
-  flex-direction: column;
+.seeMessagesBtn {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  background: transparent;
+
+  bottom: 20%;
   font-size: clamp(1rem, 5vw, 2rem);
-  font-weight: 200;
-
-  color: var(--text-main);
 }
 
-.profileArtists {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+.seeMessagesBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
 }
 
-.artistsInner {
-  max-width: 800px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.imagesContainer {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 800px;
-  max-height: 300px;
-  gap: 1rem;
+.seeMessagesBtn:hover::after {
   width: 100%;
-  overflow-x: hidden;
-  justify-content: flex-end;
-  z-index: 1000;
 }
+
+/* .profileVideo {
+  position: absolute;
+  right: 10%;
+  top: 60%;
+  transform: translateY(-50%);
+  max-width: 700px;
+  border-radius: 3px;
+  object-fit: cover;
+} */

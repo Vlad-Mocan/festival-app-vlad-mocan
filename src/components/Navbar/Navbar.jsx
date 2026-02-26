@@ -18,9 +18,12 @@ export default function Navbar({ isDark }) {
             <Link to="/lineup">LINEUP</Link>
           </li>
           <li>
+            <Link to="/contact">CONTACT</Link>
+          </li>
+          <li>
             {user ? (
               <Link to="/profile" className={styles.username}>
-                {user.email.split("@")[0]}
+                PROFILE
               </Link>
             ) : (
               <Link to="/login">SIGN IN</Link>
