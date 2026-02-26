@@ -225,7 +225,7 @@ export default function Lineup() {
         <button
           className={styles.pageBtn}
           onClick={() => setCurrentPage((prev) => prev - 1)}
-          disabled={currentPage === totalPages}
+          disabled={currentPage === 1}
         >
           &#8592;
         </button>
