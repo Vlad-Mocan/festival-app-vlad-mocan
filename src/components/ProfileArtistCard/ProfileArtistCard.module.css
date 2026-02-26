@@ -1,0 +1,29 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 120px));
+  align-items: stretch;
+  justify-items: center;
+  transition: transform 0.3s ease;
+}
+
+.artistImg {
+  width: 100%;
+  object-fit: cover;
+}
+
+.artistName {
+  position: absolute;
+  bottom: -1.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  pointer-events: none;
+}
+
+.container:hover {
+  transform: translateY(-1.5rem);
+}
+
+.container:hover .artistName {
+  opacity: 1;
+}

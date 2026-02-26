@@ -4,14 +4,6 @@
   min-height: 100dvh;
 }
 
-.loadingContainer {
-  min-height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--surface-alt);
-}
-
 .heading {
   font-family: "Anton", sans-serif;
   font-weight: 400;
@@ -32,4 +24,38 @@
 
 .errorMessage {
   color: var(--error);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.showAdminBtn {
+  position: relative;
+  border: none;
+  background: transparent;
+  color: var(--text-main);
+  font-weight: 500;
+
+  margin-right: 10rem;
+  cursor: pointer;
+}
+
+.showAdminBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.showAdminBtn:hover::after {
+  width: 100%;
 }

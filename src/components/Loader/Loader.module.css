@@ -13,3 +13,11 @@
     transform: rotate(360deg);
   }
 }
+
+.loadingContainer {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--surface-alt);
+}

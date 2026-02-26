@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   cursor: pointer;
+  position: relative;
 
   padding: 0;
   background: var(--surface-alt);
@@ -17,6 +18,30 @@
 .container:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 5%;
+  top: 2%;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--brand-accent);
+  background: transparent;
+  border: none;
+}
+
+.addToScheduleBtn {
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--brand-accent);
+  background: transparent;
+  border: none;
 }
 
 .imageWrapper {

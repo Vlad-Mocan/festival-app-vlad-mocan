@@ -19,9 +19,9 @@ export default function Navbar({ isDark }) {
           </li>
           <li>
             {user ? (
-              <span className={styles.username}>
+              <Link to="/profile" className={styles.username}>
                 {user.email.split("@")[0]}
-              </span>
+              </Link>
             ) : (
               <Link to="/login">SIGN IN</Link>
             )}
