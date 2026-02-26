@@ -22,10 +22,10 @@ export default function Lineup() {
   const profile = useSelector((state) => state.auth.profile);
   const [sortBy, setSortBy] = useState("name");
 
-  const [selectedGenre, setSelectedGenre] = useState(() => {
+  const [selectedStage, setSelectedStage] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("filters"));
-      return saved?.selectedGenre || "All";
+      return saved?.selectedStage || "All";
     } catch {
       return "All";
     }
@@ -56,9 +56,9 @@ export default function Lineup() {
   useEffect(() => {
     localStorage.setItem(
       "filters",
-      JSON.stringify({ selectedGenre, selectedDay }),
+      JSON.stringify({ selectedStage, selectedDay }),
     );
-  }, [selectedDay, selectedGenre]);
+  }, [selectedDay, selectedStage]);
 
   const fetchArtists = async () => {
     try {
@@ -109,18 +109,18 @@ export default function Lineup() {
 
   const dayOrder = ["Thursday", "Friday", "Saturday", "Sunday"];
 
-  const genres = ["All", ...new Set(artists.map((a) => a.genre))];
+  const stages = ["All", ...new Set(artists.map((a) => a.stage))];
   const days = [
     "All",
     ...dayOrder.filter((day) => artists.some((a) => a.day === day)),
   ];
 
   const filteredArtists = artists.filter((artist) => {
-    const genreMatch =
-      artist.genre === selectedGenre || selectedGenre === "All";
+    const stageMatch =
+      artist.stage === selectedStage || selectedStage === "All";
     const dayMatch = selectedDay === "All" || artist.day === selectedDay;
 
-    return genreMatch && dayMatch;
+    return stageMatch && dayMatch;
   });
 
   const stageOrder = ["Main Stage", "Dance Arena", "Orchestra Hall"];
@@ -145,13 +145,24 @@ export default function Lineup() {
       <h1 className={styles.heading}>FULL LINEUP</h1>
       <div className={styles.toolbar}>
         <Filter
-          genres={genres}
+          stages={stages}
           days={days}
-          selectedGenre={selectedGenre}
+          selectedStage={selectedStage}
           selectedDay={selectedDay}
           setSelectedDay={setSelectedDay}
-          setSelectedGenre={setSelectedGenre}
+          setSelectedStage={setSelectedStage}
         />
+
+        {isAdmin && (
+          <button
+            onClick={() => setShowAdmin(!showAdmin)}
+            type="button"
+            className={styles.showAdminBtn}
+          >
+            {showAdmin ? "Close" : "Add Artist"}
+          </button>
+        )}
+
         <div className={styles.sortWrapper}>
           <select
             className={styles.sortElement}
@@ -177,15 +188,6 @@ export default function Lineup() {
             <path d="M480-345 240-585l56-56 184 183 184-183 56 56-240 240Z" />
           </svg>
         </div>
-        {isAdmin && (
-          <button
-            onClick={() => setShowAdmin(!showAdmin)}
-            type="button"
-            className={styles.showAdminBtn}
-          >
-            {showAdmin ? "Close" : "Add Artist"}
-          </button>
-        )}
       </div>
       {isAdmin && showAdmin && <AdminArtistForm onArtistAdded={fetchArtists} />}
       <div className={styles.gridArtists}>

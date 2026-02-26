@@ -3,6 +3,8 @@
   position: relative;
   overflow: hidden;
   background-color: var(--brand-primary);
+
+  padding: 0 1rem;
 }
 
 .heroTitle {

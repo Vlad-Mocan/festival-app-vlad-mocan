@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.profileInformation {
+  margin-top: 2rem;
+}
+
 .profileHeader {
   display: flex;
   align-items: center;
@@ -58,6 +62,7 @@
 
   position: absolute;
   top: 50%;
+
   transform: translateY(-50%);
 }
 
@@ -160,3 +165,13 @@
 .seeMessagesBtn:hover::after {
   width: 100%;
 }
+
+/* .profileVideo {
+  position: absolute;
+  right: 10%;
+  top: 60%;
+  transform: translateY(-50%);
+  max-width: 700px;
+  border-radius: 3px;
+  object-fit: cover;
+} */

@@ -51,7 +51,7 @@ export default function Profile() {
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
 
-      <div>
+      <div className={styles.profileInformation}>
         <div className={styles.profileHeader}>
           <span>YOUR</span>
           <span>PROFILE</span>
@@ -85,6 +85,10 @@ export default function Profile() {
       {isOpen && <Messages setIsOpen={setIsOpen} />}
 
       <ProfileArtists artists={myArtists} />
+
+      {/* <video className={styles.profileVideo} autoPlay muted loop playsInline>
+        <source src="/profile.mp4" type="video/mp4" />
+      </video> */}
 
       <button className={styles.signOutBtn} onClick={handleSignOut}>
         Sign Out
