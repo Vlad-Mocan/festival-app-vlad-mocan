@@ -4,13 +4,13 @@ import { Navigate } from "react-router-dom";
 import { logout } from "../../store/authSlice";
 import { supabase } from "../../lib/supabase";
 import { useEffect, useState } from "react";
-import ProfileArtistCard from "../../components/ProfileArtistCard/ProfileArtistCard";
 import ProfileArtists from "../../components/ProfileArtists/ProfileArtists";
 
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const profile = useSelector((state) => state.auth.profile);
+  const [isOpened, setIsOpened] = useState(false);
 
   const [myArtists, setMyArtists] = useState([]);
 
@@ -55,7 +55,7 @@ export default function Profile() {
           <span>YOUR</span>
           <span>PROFILE</span>
           {profile?.role === "admin" && (
-            <span className={styles.profileSpan}> - ADMIN</span>
+            <span className={styles.adminSpan}>ADMIN</span>
           )}
         </div>
 
@@ -66,7 +66,23 @@ export default function Profile() {
         </div>
       </div>
 
-      <ProfileArtists artists={myArtists} />
+      <button
+        onClick={() => setIsOpened((prev) => !prev)}
+        className={`${styles.seeArtistsBtn} ${isOpened ? styles.active : ""}`}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 -960 960 960"
+          width="24px"
+          fill="var(--text-main)"
+        >
+          <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z" />
+        </svg>
+        <span>SEE YOUR ARTISTS</span>
+      </button>
+
+      <ProfileArtists artists={myArtists} isOpened={isOpened} />
 
       <button className={styles.signOutBtn} onClick={handleSignOut}>
         Sign Out
