@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Profile.module.css";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { logout } from "../../store/authSlice";
 import { supabase } from "../../lib/supabase";
 import { useEffect, useState } from "react";
 import ProfileArtists from "../../components/ProfileArtists/ProfileArtists";
+import Messages from "../../components/Messages/Messages";
 
 export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const profile = useSelector((state) => state.auth.profile);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [myArtists, setMyArtists] = useState([]);
 
@@ -71,7 +73,16 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* <p className={styles.artistsNumber}>FONM 2026</p> */}
+      {profile?.role === "admin" && (
+        <button
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={styles.seeMessagesBtn}
+        >
+          SEE CONTACT MESSAGES
+        </button>
+      )}
+
+      {isOpen && <Messages setIsOpen={setIsOpen} />}
 
       <ProfileArtists artists={myArtists} />
 

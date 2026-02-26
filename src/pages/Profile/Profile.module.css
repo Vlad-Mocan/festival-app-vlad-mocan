@@ -135,3 +135,28 @@
     height 0.5s,
     filter 0.5s;
 }
+
+.seeMessagesBtn {
+  cursor: pointer;
+  border: none;
+  position: absolute;
+  background: transparent;
+
+  bottom: 20%;
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+
+.seeMessagesBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--text-main);
+  transition: width 0.3s ease;
+}
+
+.seeMessagesBtn:hover::after {
+  width: 100%;
+}
