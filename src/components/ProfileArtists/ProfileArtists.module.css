@@ -1,17 +1,95 @@
 .container {
   position: fixed;
-  right: 60%;
-  bottom: 0;
-  transform: translateY(100%);
+  left: 50%;
+  bottom: -1px;
+  transform: translate(-50%, 100%);
 
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
+  max-height: 50vh;
+
+  background-color: var(--surface-main);
+  border-radius: 2px;
+
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: column;
+
+  transition: transform 0.3s ease;
+  z-index: 99;
+}
+
+.toggleBtn {
+  position: fixed;
+  cursor: pointer;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border: none;
+  background-color: var(--brand-accent);
+  color: var(--surface-main);
+  opacity: 0.8;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.toggleBtn:hover {
+  opacity: 1;
+}
+
+.toggleBtn.active {
+  bottom: 50vh;
+}
+
+.toggleBtn svg {
+  transition: transform 0.3s ease;
+}
+
+.toggleBtn.active svg {
+  transform: rotate(180deg);
 }
 
 .container.active {
-  transform: translateY(-50%);
+  transform: translate(-50%, 0);
+}
+
+.title {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.artistsGrid {
+  overflow-y: auto;
+  padding: 0 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.artistCard {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.artistImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.artistName {
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: center;
 }

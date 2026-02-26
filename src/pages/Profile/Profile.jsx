@@ -10,7 +10,6 @@ export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const profile = useSelector((state) => state.auth.profile);
-  const [isOpened, setIsOpened] = useState(false);
 
   const [myArtists, setMyArtists] = useState([]);
 
@@ -60,29 +59,21 @@ export default function Profile() {
         </div>
 
         <div className={styles.profileDescription}>
-          <span>E-mail: {user.email}</span>
-          <span>First Name: {profile.first_name}</span>
-          <span>Last Name: {profile.last_name}</span>
+          <span>
+            <strong>EMAIL:</strong> {user.email}
+          </span>
+          <span>
+            <strong>FIRST NAME:</strong> {profile.first_name}
+          </span>
+          <span>
+            <strong>LAST NAME:</strong> {profile.last_name}
+          </span>
         </div>
       </div>
 
-      <button
-        onClick={() => setIsOpened((prev) => !prev)}
-        className={`${styles.seeArtistsBtn} ${isOpened ? styles.active : ""}`}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="24px"
-          viewBox="0 -960 960 960"
-          width="24px"
-          fill="var(--text-main)"
-        >
-          <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z" />
-        </svg>
-        <span>SEE YOUR ARTISTS</span>
-      </button>
+      {/* <p className={styles.artistsNumber}>FONM 2026</p> */}
 
-      <ProfileArtists artists={myArtists} isOpened={isOpened} />
+      <ProfileArtists artists={myArtists} />
 
       <button className={styles.signOutBtn} onClick={handleSignOut}>
         Sign Out
