@@ -132,7 +132,7 @@ npm run lint
 | Role  | Permissions                                   |
 | ----- | --------------------------------------------- |
 | user  | See Lineup, Save artists to personal schedule |
-| Admin | Add/delete artists, view contact messages     |
+| admin | Add/delete artists, view contact messages     |
 
 A user is assigned the `admin` role by setting `role = 'admin'` in the `profiles` table.
 
