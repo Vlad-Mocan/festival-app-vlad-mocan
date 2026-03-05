@@ -3,7 +3,26 @@
 A festival management web application built with React, Redux Toolkit, Supabase, and Vite. The app allows users to browse the festival lineup, manage their personal schedule, and contact the organizers. Admins can add or remove artists directly from the UI.
 
 ## Preview
-<img src ="./public/preview-home.png" alt="Home Page" width="500">
+
+### Home
+
+<img src ="./public/preview-home.png" alt="Home Page" width="700">
+
+### Login
+
+<img src ="./public/preview-login.png" alt="Login Page" width="700">
+
+### Lineup
+
+<img src ="./public/preview-lineup.png" alt="Lineup Page" width="700">
+
+### Profile
+
+<img src ="./public/preview-profile.png" alt="Profile Page" width="700">
+
+### Contact
+
+<img src ="./public/preview-contact.png" alt="Contact Page" width="700">
 
 ## Tech Stack
 
