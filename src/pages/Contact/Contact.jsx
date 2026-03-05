@@ -68,6 +68,12 @@ export default function Contact() {
           Send Message
         </button>
 
+        {!supabase && (
+          <p className={styles.noSupabaseNotice}>
+            No Supabase connection detected. Messages cannot be submitted
+            without a valid .env file. See the README for setup instructions.
+          </p>
+        )}
         {submitMessage && <p>{submitMessage}</p>}
       </form>
 

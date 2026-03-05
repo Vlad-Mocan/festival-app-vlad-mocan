@@ -94,6 +94,12 @@ export default function Login() {
           </span>
         </div>
 
+        {!supabase && (
+          <p className={styles.noSupabaseNotice}>
+            No Supabase connection detected. Authentication will not work
+            without a valid .env file. See the README for setup instructions.
+          </p>
+        )}
         <form onSubmit={handleSumbit} className={styles.authForm}>
           {isLogin || (
             <>

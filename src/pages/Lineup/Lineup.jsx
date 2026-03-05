@@ -54,6 +54,10 @@ export default function Lineup() {
   });
 
   useEffect(() => {
+    if (!supabase) {
+      setError("No Supabase connection. Set up your .env file to load the lineup.");
+      return;
+    }
     fetchArtists();
   }, []);
 

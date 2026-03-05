@@ -51,3 +51,9 @@
   font-family: "Anton", sans-serif;
   letter-spacing: 4px;
 }
+
+.noSupabaseNotice {
+  font-size: 0.8rem;
+  color: var(--border-subtle);
+  margin: 0;
+}

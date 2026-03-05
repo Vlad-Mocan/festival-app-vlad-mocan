@@ -12,9 +12,11 @@ function App() {
   const dispatch = useDispatch();
   const location = useLocation();
   const isDark = location.pathname === "/" || location.pathname === "/login";
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!!supabase);
 
   useEffect(() => {
+    if (!supabase) return;
+    
     supabase.auth.getUser().then(({ data: { user } }) => {
       if (user) {
         dispatch(setUser(user));

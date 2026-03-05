@@ -113,3 +113,10 @@
   background-color: var(--brand-accent);
   color: var(--surface-main);
 }
+
+.noSupabaseNotice {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 0;
+}
